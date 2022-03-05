@@ -54,23 +54,52 @@ export class StudentList {
         return "Student id doesnt exists";
     }
 
-    removeStudent(id: string) {
+    removeStudent( id: string ){
         // this.students.splice(index, 1)
+        let student = this.students.findIndex(element => element.studentId === id);
+        this.students.splice(student,1)
+      
+        return this.students;
+       
     }
 
-    updateCollege(id: string, newCollegeName: string) {
+    updateCollege(id: string, college: string) {
         // find student using id
+        let student = this.students.find(element => element.studentId === id);
+
+        if (student) {
+            student.college = college;
+            return student;
+        }
     }
 
-    updateAddress(id: string, newAddress: string) {
+    updateAddress(id: string, address: string) {
         // find student using id
+        let student = this.students.find(element => element.studentId === id);
+
+        if (student) {
+            student.address = address;
+            return student;
+        }
+    }
+    updateCourse(id: string, course: string) {
+        // find student using id
+        let student = this.students.find(element => element.studentId === id);
+
+        if (student) {
+            student.course = course;
+            return student;
+        }
     }
 
-    updateCourse(id: string, newCourse: string) {
+    updateGender(id: string, gender: string) {
         // find student using id
-    }
+        // added
+        let student = this.students.find(element => element.studentId === id);
 
-    updateGender(id: string, newGender: string) {
-        // find student using id
+        if (student) {
+            student.gender = gender;
+            return student;
+        }
     }
 }
